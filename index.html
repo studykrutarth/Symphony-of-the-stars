@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Symphony of the Stars</title>
+    <style>
+        /* Ensure the body has no background */
+        body {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden; /* Prevent horizontal overflow */
+            background-color: transparent; /* Full transparency */
+        }
+
+        /* Reset all main sections and elements */
+        main, section, header, blockquote {
+            background-color: transparent;
+            margin: 0;
+            padding: 0;
+            overflow: visible; /* Make sure overflow is visible */
+        }
+
+        /* Style for the canvas background */
+        canvas#bg {
+            position: fixed; /* Fix canvas as a background */
+            top: 0;
+            left: 0;
+            width: 100vw; /* Full width */
+            height: 100vh; /* Full height */
+            z-index: -1; /* Behind all other elements */
+        }
+
+        .photo-collage {
+            text-align: center;
+            margin: 20px 0;
+            padding: 20px;
+            overflow: hidden;
+        }
+
+        .collage-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-gap: 10px;
+            justify-items: center;
+            align-items: center;
+            background-color: transparent;
+        }
+
+        .collage-container img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Custom sizes and positions for the grid layout */
+        .collage-container img:nth-child(1) {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+
+        .collage-container img:nth-child(4) {
+            grid-column: span 2;
+        }
+
+        .collage-container img:nth-child(6) {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+
+        /* Responsive adjustments for smaller screens */
+        @media (max-width: 768px) {
+            .collage-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .collage-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Style for the music button */
+        .music-button {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            padding: 5px 10px;
+            font-size: 12px;
+            cursor: pointer;
+            background-color: rgba(255, 255, 255, 0.8);
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            z-index: 10; /* Above the canvas */
+        }
+    </style>
+</head>
+<body>
+    <canvas id="bg"></canvas>
+
+    <main>
+        <!-- Music Button -->
+        <audio id="background-music" loop>
+            <source src="Declan McKenna - Brazil.mp3" type="audio/mpeg">
+            Your browser does not support the audio tag.
+        </audio>
+        <button class="music-button" onclick="toggleMusic()">Play/Pause</button>
+
+        <!-- Photo Collage Section -->
+        <section class="photo-collage">
+            <h2>JWST 2022 images</h2>
+            <div class="collage-container">
+                <img id="image1" src="image1.jpg" alt="Description of image 1" /> <!--discription is the img number-->
+                <img id="image2" src="image2.png" alt="Description of image 2" />
+                <img id="image3" src="image3.png" alt="Description of image 3" />
+                <img id="image4" src="image4.jpg" alt="Description of image 4" />
+                <img id="image5" src="image5.jpg" alt="Description of image 5" />
+                <img id="image6" src="image6.png" alt="Description of image 6" />
+                <img id="image7" src="image7.jpg" alt="Description of image 7" />
+            </div>
+        </section>
+
+        <!-- New Photo Collage Section copy entire section for collage 3 or more and place inside main only -->
+        <section class="photo-collage collage-2"> <!-- Added unique class 'collage-2' -->
+          <h2>Collage 2</h2>
+          <div class="collage-container">
+            <img id="image9" src="image9.png" alt="Description of image 9" />
+            <img id="image10" src="image10.jpg" alt="Description of image 10" />
+            <img id="image14" src="image14.png" alt="Description of image 14" />
+            <img id="image11" src="image11.jpg" alt="Description of image 11" />
+            <img id="image8" src="image8.png" alt="Description of image 8" />
+            <img id="image12" src="image12.png" alt="Description of image 12" />
+            <img id="image13" src="image13.png" alt="Description of image 13" />
+          </div>
+        </section>
+
+        <section class="photo-collage collage-3"> 
+          <h2>Collage 3</h2>
+          <div class="collage-container">
+            <img id="image16" src="image16.png" alt="Description of image 16" />
+            <img id="image17" src="image17.jpg" alt="Description of image 17" />
+            <img id="image21" src="image21.png" alt="Description of image 21" />
+            <img id="image19" src="image19.png" alt="Description of image 19" />
+            <img id="image15" src="image15.png" alt="Description of image 15" />
+            <img id="image18" src="image18.jpg" alt="Description of image 18" />
+            <img id="image20" src="image20.jpg" alt="Description of image 20" />
+          </div>
+        </section>
+    </main>
+
+    <script>
+        const music = document.getElementById('background-music');
+        function toggleMusic() {
+            if (music.paused) {
+                music.play();
+            } else {
+                music.pause();
+            }
+        }
+    </script>
+    <script type="module" src="/main.js"></script>
+</body>
+</html>
