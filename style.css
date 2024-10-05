@@ -1,0 +1,269 @@
+/* General styling */
+@import url("https://use.typekit.net/jmk3xov.css");
+
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+:root {
+  --dark-bg: rgba(15, 15, 15, 0.95); /* Main dark background for sections */
+  --spacing: 350px;
+  --collage-columns: 6;
+  font-family: brandon-grotesque, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+main {
+  width: 100vw;
+  color: white;
+  z-index: 99;
+  position: absolute;
+  width: 100%;
+  margin: 0px auto;
+  padding: 120px 0px;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+}
+
+h1, h2, h3, blockquote {
+  font-family: elevon, sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+header {
+  background: var(--dark-bg);
+  grid-column: 2 / span 5;
+  font-size: 2.5rem;
+  padding: 2rem;
+  margin-bottom: var(--spacing);
+}
+
+section {
+  grid-column: 2 / 8;
+  padding: 1rem;
+  background: var(--dark-bg);
+  font-size: 1.25rem;
+  line-height: 1.5;
+  margin-bottom: var(--spacing);
+}
+
+blockquote {
+  margin: 0;
+  padding: 0;
+  grid-column: 2 / span 9;
+  margin-bottom: var(--spacing);
+}
+
+blockquote p {
+  color: black;
+  background-color: white;
+  font-size: 4rem;
+  display: inline;
+  line-height: 1;
+}
+
+.left {
+  grid-column: 6 / 12;
+}
+
+/* Photo Collage Section */
+.photo-collage {
+  grid-column: 2 / 12; /* Adjust grid placement */
+  margin-bottom: var(--spacing);
+  background-color: transparent; /* Ensure transparency */
+}
+
+/* Collage container changes */
+.collage-container {
+  display: grid;
+  grid-template-columns: repeat(var(--collage-columns), 1fr); /* 6 columns for better control */
+  grid-gap: 10px;
+  justify-items: center;
+  align-items: center;
+  justify-content: center; /* Centering items horizontally */
+  align-content: center; /* Centering items vertically */
+  background-color: transparent; /* Ensure transparency */
+  position: relative; /* Set relative positioning for absolute children */
+}
+
+/* Image styling */
+.collage-container img {
+  width: 100%;
+  height: auto;
+  object-fit: cover; /* Ensure uniform sizing */
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Optional subtle shadow */
+  transition: transform 0.5s ease, z-index 0.5s ease;
+  position: relative; /* Base positioning */
+  z-index: 1; /* Base z-index */
+  transform-origin: center; /* Default origin */
+}
+
+/* Fixed positioning for transformed images */
+.collage-container img.transformed {
+  position: absolute; /* Allow absolute positioning */
+}
+
+/* Staggered Layout */
+.collage-container img:nth-child(1) {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.collage-container img:nth-child(2) {
+  grid-column: span 2;
+}
+
+.collage-container img:nth-child(3) {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.collage-container img:nth-child(4) {
+  grid-column: span 2;
+}
+
+.collage-container img:nth-child(5) {
+  grid-column: span 2;
+}
+
+.collage-container img:nth-child(6) {
+  grid-column: span 2;
+  grid-row: span 9;
+}
+
+.collage-container img:nth-child(7) {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.collage-container {
+  position: relative; /* Make this container relative */
+}
+
+/* Specific adjustments for image 5 */
+.collage-container img:nth-child(5) {
+  bottom: 150px; /* Move image 5 up by changing the top position */
+}
+
+.collage-container img:nth-child(6) {
+  bottom: 30px; /* Move image 5 up by changing the top position */
+}
+
+.collage-container img:nth-child(7) {
+  bottom: 170px; /* Move image 5 up by changing the top position */
+}
+
+/* collage 2 */
+
+.collage-2 { /*whole collage shifting*/
+  margin-top: -190px;   /* Shift up by 50 pixels */
+  /* OR */
+  /*margin-bottom: 20px;  Shift down by 20 pixels try it to see where it moves */
+}
+
+/* Staggered Layout for Collage 2 */
+.collage-2 .collage-container img:nth-child(1) {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.collage-2 .collage-container img:nth-child(2) {
+  grid-column: span 2;
+}
+
+.collage-2 .collage-container img:nth-child(3) {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.collage-2 .collage-container img:nth-child(4) {
+  grid-column: span 2;
+}
+
+.collage-2 .collage-container img:nth-child(5) {
+  grid-column: span 2;
+}
+
+.collage-2 .collage-container img:nth-child(6) {
+  grid-column: span 2;
+  grid-row: span 10; /* Adjust this if you want it larger */
+}
+
+.collage-2 .collage-container img:nth-child(7) {
+  grid-column: span 2;
+}
+
+/* Adjust positioning for images */
+.collage-2 .collage-container img:nth-child(1) {
+  top: 30px; 
+}
+
+.collage-2 .collage-container img:nth-child(2) {
+  top: 50px; 
+}
+
+.collage-2 .collage-container img:nth-child(4) {
+  top: 40px; 
+} 
+
+.collage-2 .collage-container img:nth-child(5) {
+  top: 30px; 
+}
+
+.collage-2 .collage-container img:nth-child(6) {
+  bottom: 60px; 
+}
+
+.collage-2 .collage-container img:nth-child(7) {
+  bottom: 50px; /* Adjust as needed */
+}
+
+
+
+/* collage 3 */
+
+.collage-3 { /*whole collage shifting*/
+  margin-top: -190px;   /* Shift up by 50 pixels */
+  /* OR */
+  /*margin-bottom: 20px;  Shift down by 20 pixels try it to see where it moves */
+}
+
+.collage-3 .collage-container img:nth-child(5) {
+  bottom: 110px; 
+}
+
+.collage-3 .collage-container img:nth-child(7) {
+  bottom: 70px; 
+}
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  .collage-container {
+    grid-template-columns: repeat(3, 1fr); /* 3 columns for tablets and smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .collage-container {
+    grid-template-columns: 1fr; /* 1 column for mobile devices */
+  }
+}
+
+/* Smooth zoom effect for images */
+.collage-container img.zoomed {
+  transform: scale(1.5);
+  z-index: 10; /* Bring the zoomed image to the front */
+}
+
+/* Adjust transform-origin for left, center, and right images */
+.collage-container img.left {
+  transform-origin: left center; /* For images on the left side */
+}
+
+.collage-container img.right {
+  transform-origin: right center; /* For images on the right side */
+} 
